@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Model</th>
                 <th>Date_of_creation</th>
+                <th>Marque</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ car.id }}</td>
                 <td>{{ car.model }}</td>
                 <td>{{ car.dateOfCreation ? car.dateOfCreation|date('Y-m-d') : '' }}</td>
+                <td>{{ car.brand.name }}</td>
                 <td>
                     <a href="{{ path('app_car_show', {'id': car.id}) }}">show</a>
                     <a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>

@@ -4,10 +4,32 @@
 {% endblock %}
 
 {% block body %}
-	<ul>
-		<li><a href="{{path('app_brand_index')}}">Marque</a></li>
-	</ul>
 
-	
+<div class="container">
+	<h2>Liste des voitures</h2>
+
+	<div class="table-responsive">
+		<table class="table table-light">
+			<thead>
+				<tr>
+					<th scope="col">Modèle</th>
+					<th scope="col">Marque</th>
+					<th scope="col">Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for car in cars %}
+					
+				<tr>
+					<td>{{car.model}}</td>
+					<td>{{car.brand.name}}</td>
+					<td>{{car.dateOfCreation | date("d/m/Y")}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	</div>
+
 
 {% endblock %} 

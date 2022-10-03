@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Form\CarType;
+use App\Repository\BrandRepository;
 use App\Repository\CarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,9 +50,12 @@ class CarController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_car_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Car $car, CarRepository $carRepository): Response
+    public function edit(Request $request, Car $car, CarRepository $carRepository, BrandRepository $brandRepository): Response
     {
-        $form = $this->createForm(CarType::class, $car);
+        $form = $this->createForm(CarType::class, $car, [
+                        'brands' => $brandRepository->findAll()
+
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
