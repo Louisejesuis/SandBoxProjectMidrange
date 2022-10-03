@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Brand;
 use App\Entity\Car;
+use App\Entity\User;
+
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
@@ -29,6 +31,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
         yield MenuItem::linkToCrud('Marque', 'fa fa-tags', Brand::class);
         yield MenuItem::linkToCrud('Modèle', 'fa fa-tags', Car::class);
+        yield MenuItem::linkToCrud('Utilisateur', 'fa fa-tags', User::class);
 
     }
 }
