@@ -16,7 +16,8 @@ class AppController extends AbstractController
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
             'brands' => $brandRepository->findAll(),
-            'cars' => $carRepository->findAll()
+            'cars' => $carRepository->findAll(),
+            'currentUser' => $this->getUser()
         ]);
     }
 }

@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-
+<h1 class="text-center">Bonjour {% if currentUser is null %} Inconnue {% else %} {{ currentUser.username | capitalize }} {% endif %}</h1>
 <div class="container">
 	<h2>Liste des voitures</h2>
 
