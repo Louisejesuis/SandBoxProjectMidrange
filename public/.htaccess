@@ -65,4 +65,3 @@ Options +FollowSymlinks
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
-
