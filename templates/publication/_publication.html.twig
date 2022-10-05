@@ -1,9 +1,26 @@
 {% if display == 'large' %}
 	{% set content = publication.content %}
+	{% set tagNumber = 6 %}
 {% else %}
 	{% set content = publication.content | slice(0, 80) %}
+	{% set tagNumber = 3 %}
+
 {% endif %}
 <div class="card m-2" style="height : 100%">
+	<div class="card-header d-flex align-items-center">
+		<div class="btn-group " role="group" aria-label="Basic example">
+			{% for tag in publication.tags | slice(0,tagNumber) %}
+				{% set backgroundCss = "border-color :" ~ tag.color %}
+				<a class="btn btn-sm" role="button" style="{{backgroundCss}}">{{tag | slice(0, 8)}}</a>
+			{% endfor %}
+
+		</div>
+		{% if publication.tags | length >= tagNumber %}
+			+
+			{{publication.tags | length - (tagNumber - 1)}}
+			tags
+		{% endif %}
+	</div>
 	<div class="card-body">
 		<p class="card-text">{{content}}</p>
 	</div>

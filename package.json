@@ -129,6 +129,7 @@
     "isobject": "^3.0.1",
     "isstream": "^0.1.2",
     "jest-worker": "^27.5.1",
+    "jquery": "^3.6.1",
     "js-base64": "^2.6.4",
     "js-tokens": "^4.0.0",
     "jsbn": "^0.1.1",
