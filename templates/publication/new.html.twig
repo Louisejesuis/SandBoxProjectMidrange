@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Publication{% endblock %}
+{% set title = 'Nouvelle publication' %}
 
 {% block body %}
-    <h1>Create new Publication</h1>
 
-    {{ include('publication/_form.html.twig') }}
+	{% include 'publication/_form.html.twig' with {submit_label : 'Créer'} %}
 
-    <a href="{{ path('app_publication_index') }}">back to list</a>
 {% endblock %}

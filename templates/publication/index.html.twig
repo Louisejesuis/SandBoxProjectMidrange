@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Publication index
-{% endblock %}
+{% set title = 'Blog' %}
 {% block body %}
 	<div class="container">
-		<ul class="nav justify-content-center  ">
+		<ul class="nav justify-content-center">
 			<li class="nav-item">
 				<a class="nav-link active" href="{{path('app_publication_new')}}" aria-current="page">Nouvelle article</a>
 			</li>
@@ -13,26 +12,12 @@
 			</li>
 		</ul>
 		<div class="row">
-			<div class="card-group">
 
-				{% for publication in publications %}
-					<div class="col-3">
-						<div class="card" style="height : 100%">
-							<div class="card-body">
-								<p class="card-text">{{publication.content | slice(0, 80) }}</p>
-								<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
-								<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
-								{% include "publication/_edit_button.html.twig"%}
-
-							</div>
-							<div class="card-footer">
-								<small class="text-muted">{{publication.user}}</small>
-								<small class="text-muted">{{publication.date | date}}</small>
-							</div>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
+			{% for publication in publications %}
+				<div class="col-3 my-2">
+					{% include "publication/_publication.html.twig" with {display : 'small'} %}
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

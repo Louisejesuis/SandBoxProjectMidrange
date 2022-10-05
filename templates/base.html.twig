@@ -3,7 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% if title is not defined %}
+				{% set title = 'Undefined' %}
+			{% endif %}
+
+			{% block title %}
+				{{title}}
 			{% endblock %}
 		</title>
 
@@ -11,7 +16,7 @@
 		{{encore_entry_link_tags('app')}}
 
 	</head>
-	<body>
+	<body class ="pb-5">
 		{% include "include/navbar.html.twig" %}
 		{% block body %}
 			{% block javascripts %}{% endblock %}

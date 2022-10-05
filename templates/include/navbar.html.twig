@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-light bg-light sticky-top">
 	<div class="nav navbar-nav">
 		<a class="nav-item nav-link active" href="{{path('app_app')}}" aria-current="page">Accueil
 			<span class="visually-hidden">(current)</span>
@@ -12,3 +12,6 @@
 		<a class="nav-item nav-link" href="{{path('app_publication_index')}}">Blog</a>
 	</div>
 </nav>
+<div class="title bg-primary d-flex align-items-center justify-content-center mb-2" style="height : 150px">
+	<h1 class="text-light">{{title}}</h1>
+</div>

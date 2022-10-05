@@ -1,39 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Publication
-{% endblock %}
+{% set title = 'Publication#' ~ publication.id %}
 
 {% block body %}
-	<h1>Publication</h1>
 	<div class="container">
-		<div class="card" style="height : 100%">
-			<div class="card-body">
-				<p class="card-text">{{publication.content | slice(0, 80) }}</p>
-				<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
-				<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
-			</div>
-			<div class="card-footer">
-				<small class="text-muted">{{publication.user}}</small>
-				<small class="text-muted">{{publication.date | date}}</small>
+		{% include "publication/_publication.html.twig" with {display : 'large'} %}
+
+		<div class="row">
+			<div class="col-1 border-end border-2 border-black"></div>
+			<div class="col">
+				<h3>Réponse</h3>
+				{% for publication in posteriorPublications %}
+					<div class="row my-2">
+						<div class="col">
+							{% include "publication/_publication.html.twig" with {display : 'large'} %}
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
-		{% include "publication/_edit_button.html.twig" with { user_id : publication.user.id, publication_id : publication.id} %}
-		<h2>Réponse</h2>
-		{% for publication in posteriorPublications %}
-			<div class="card" style="height : 100%">
-				<div class="card-body">
-					<p class="card-text">{{publication.content | slice(0, 80) }}</p>
-					<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
-					<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">{{publication.user}}</small>
-					<small class="text-muted">{{publication.date | date}}</small>
-				</div>
-			</div>
-		{% endfor %}
-		<a href="{{ path('app_publication_index') }}">back to list</a>
 
-		{{ include('publication/_delete_form.html.twig') }}
+
 	</div>
 {% endblock %}
