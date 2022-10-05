@@ -1,17 +1,51 @@
-<nav class="navbar navbar-expand navbar-light bg-light sticky-top">
-	<div class="nav navbar-nav">
-		<a class="nav-item nav-link active" href="{{path('app_app')}}" aria-current="page">Accueil
-			<span class="visually-hidden">(current)</span>
-		</a>
-		<a class="nav-item nav-link" href="{{path('app_brand_index')}}">Marque</a>
-		<a class="nav-item nav-link" href="{{path('app_car_index')}}">Voiture</a>
-		<a class="nav-item nav-link" href="{{path('app_login')}}">Se connecter</a>
-		<a class="nav-item nav-link" href="{{path('app_register')}}">Créer un compte</a>
-		<a class="nav-item nav-link" href="{{path('app_logout')}}">Se déconnecter</a>
-		<a class="nav-item nav-link" href="{{path('admin')}}">Administration</a>
-		<a class="nav-item nav-link" href="{{path('app_publication_index')}}">Blog</a>
+<nav class="navbar navbar-expand-lg bg-light sticky-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{path('app_app')}}">SandBox</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="{{path('app_app')}}">Accueil</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{{path('app_publication_index')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Blog
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{{path('app_publication_by_user')}}">Mes posts</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{path('app_publication_new')}}">Créer un post</a>
+						</li>
+					</ul>
+				</li>
+				<a class="nav-item nav-link" href="{{path('admin')}}">Administration</a>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Mon compte
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="{{path('app_login')}}">Se connecter</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{path('app_register')}}">Créer un compte</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="{{path('app_logout')}}">Se déconnecter</a>
+						</li>
+					</ul>
+				</li>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="title bg-primary d-flex align-items-center justify-content-center mb-2" style="height : 150px">
+		<h1 class="text-light">{{title}}</h1>
 	</div>
-</nav>
-<div class="title bg-primary d-flex align-items-center justify-content-center mb-2" style="height : 150px">
-	<h1 class="text-light">{{title}}</h1>
-</div>
