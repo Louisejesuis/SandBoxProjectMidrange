@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication
+{% endblock %}
+
+{% block body %}
+	<h1>Publication</h1>
+	<div class="container">
+		<div class="card" style="height : 100%">
+			<div class="card-body">
+				<p class="card-text">{{publication.content | slice(0, 80) }}</p>
+				<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
+				<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
+			</div>
+			<div class="card-footer">
+				<small class="text-muted">{{publication.user}}</small>
+				<small class="text-muted">{{publication.date | date}}</small>
+			</div>
+		</div>
+		<h2>Réponse</h2>
+		{% for publication in posteriorPublications %}
+			<div class="card" style="height : 100%">
+				<div class="card-body">
+					<p class="card-text">{{publication.content | slice(0, 80) }}</p>
+					<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
+					<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">{{publication.user}}</small>
+					<small class="text-muted">{{publication.date | date}}</small>
+				</div>
+			</div>
+		{% endfor %}
+		<a href="{{ path('app_publication_index') }}">back to list</a>
+
+		<a href="{{ path('app_publication_edit', {'id': publication.id}) }}">edit</a>
+
+		{{ include('publication/_delete_form.html.twig') }}
+	</div>
+{% endblock %}
