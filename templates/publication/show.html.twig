@@ -17,6 +17,7 @@
 				<small class="text-muted">{{publication.date | date}}</small>
 			</div>
 		</div>
+		{% include "publication/_edit_button.html.twig" with { user_id : publication.user.id, publication_id : publication.id} %}
 		<h2>Réponse</h2>
 		{% for publication in posteriorPublications %}
 			<div class="card" style="height : 100%">
@@ -32,8 +33,6 @@
 			</div>
 		{% endfor %}
 		<a href="{{ path('app_publication_index') }}">back to list</a>
-
-		<a href="{{ path('app_publication_edit', {'id': publication.id}) }}">edit</a>
 
 		{{ include('publication/_delete_form.html.twig') }}
 	</div>

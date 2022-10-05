@@ -22,6 +22,8 @@
 								<p class="card-text">{{publication.content | slice(0, 80) }}</p>
 								<a href="{{path('app_publication_show', { id : publication.id })}}">Voir</a>
 								<a href="{{path('app_publication_new', { previous_id : publication.id })}}">Répondre</a>
+								{% include "publication/_edit_button.html.twig"%}
+
 							</div>
 							<div class="card-footer">
 								<small class="text-muted">{{publication.user}}</small>
